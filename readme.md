@@ -1,0 +1,1 @@
+This is a classical tetris. To keep the blocks from piling up to the top of the screen for as long as you can is the object of the game. Different play options and creative twists were added to later iterations of the game, although the gameplay generally stayed fairly true to the original. 
