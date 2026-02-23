@@ -162,9 +162,9 @@ def main():
     show_text_screen('Tetris')
     while True: #game loop
         if random.randint(0, 1) == 0:
-            pygame.mixer.music.load('tetris/Sound/tetrisb.mid')
+            pygame.mixer.music.load('Sound/tetrisb.mid')
         else:
-            pygame.mixer.music.load('tetris/Sound/tetrisc.mid')
+            pygame.mixer.music.load('Sound/tetrisc.mid')
         pygame.mixer.music.play(-1, 0.0)
         run_game()
         pygame.mixer.music.stop()
