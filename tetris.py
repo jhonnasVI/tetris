@@ -230,7 +230,20 @@ def run_game():
                 
                 #rotating the block, if there is room to rotate
                 elif (event.key == K_UP or event.key == K_w):
-                    falling_piece['rotation'] = (falling_piece['rotation'] + 1) % len(shapes[falling_piece['shape']])
+
+                    old_rotation = falling_piece['rotation']
+                    new_rotation = (old_rotation + 1) % len(shapes[falling_piece['shape']])
+                    falling_piece['rotation'] = new_rotation
+
+                    # Try normal position first, then wall kicks
+                    for dx in [0, -1, 1, -2, 2]:
+                        falling_piece['x'] += dx
+                        if is_valid_position(board, falling_piece):
+                            break
+                        falling_piece['x'] -= dx
+                    else:
+                        # If none worked, revert rotation
+                        falling_piece['rotation'] = old_rotation
                     
                     if not is_valid_position(board, falling_piece):
                         falling_piece['rotation'] = (falling_piece['rotation'] - 1) % len(shapes[falling_piece['shape']])
